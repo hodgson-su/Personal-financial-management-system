@@ -1,0 +1,128 @@
+<!--现金-->
+<div class="bloc" ng-controller="account02Controller">
+    <div class="title">
+        <div class="float_left">信用卡</div>
+        <!--<div class="float_right"><button class="btn">对账</button></div>-->
+        <div class="float_right">
+            <a class="hover_cursor" ng-click="add_credit_account()">添加信用卡</a>
+        </div>
+    </div>
+    <div class="content">
+        <div class="tit">
+            <div>
+                <!--<p>编辑备注</p>-->
+                <p>类型：现金账户->现金口袋 币种：人民币</p>
+            </div>
+            <div class="account02-table" ng-repeat="credit_card in credit_cards">
+                <div class="title">{{credit_card.bank}}</div>
+                <table>
+                    <thead>
+                    <tr>
+                        <th>时间</th>
+                        <th>分类</th>
+                        <th>金额</th>
+                        <th>备注</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <tr ng-repeat="item in items | filter:credit_card.bank">
+                        <td>{{item.date}}</td>
+                        <td>{{item.classify}}</td>
+                        <td>{{item.price}}</td>
+                        <td>{{item.remark}}</td>
+                    </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+    <div class="account02-credit" ng-show="add_credit">
+        <div class="credit-select clearfix">
+            <div class="safe-tit"><span class="{{mmbh_warn}}">{{safe_remind}}</span>选择发行 </div>
+            <ul>
+                <li><input type="radio" value="中国工商银行" name="credit"  ng-model="individual.bank"> 中国工商银行</li>
+                <li><input type="radio" value="招商银行" name="credit"  ng-model="individual.bank"> 招商银行</li>
+                <li><input type="radio" value="中国建设银行" name="credit"  ng-model="individual.bank"> 中国建设银行</li>
+                <li><input type="radio" value="中国银行" name="credit"  ng-model="individual.bank"> 中国银行</li>
+            </ul>
+        </div>
+        <div class="credit-input">
+            <ul class="clearfix">
+                <li><label>卡片名称：</label><input type="text" ng-model="individual.bank"> </li>
+                <li><label>卡片额度：</label><input type="text" ng-model="individual.limit"> </li>
+                <li><label>账单日：</label>
+                    <select class="form03_select_button" ng-model="individual.account_day" ng-click="select(day)">
+                        <option value="1">1日</option>
+                        <option value="2">2日</option>
+                        <option value="3">3日</option>
+                        <option value="4">4日</option>
+                        <option value="5">5日</option>
+                        <option value="6">6日</option>
+                        <option value="7">7日</option>
+                        <option value="8">8日</option>
+                        <option value="9">9日</option>
+                        <option value="10">10日</option>
+                        <option value="11">11日</option>
+                        <option value="12">12日</option>
+                        <option value="13">13日</option>
+                        <option value="14">14日</option>
+                        <option value="15">15日</option>
+                        <option value="16">16日</option>
+                        <option value="17">17日</option>
+                        <option value="18">18日</option>
+                        <option value="19">19日</option>
+                        <option value="20">20日</option>
+                        <option value="21">21日</option>
+                        <option value="22">22日</option>
+                        <option value="23">23日</option>
+                        <option value="24">24日</option>
+                        <option value="25">25日</option>
+                        <option value="26">26日</option>
+                        <option value="27">27日</option>
+                        <option value="28">28日</option>
+                        <option value="29">29日</option>
+                        <option value="30">30日</option>
+                    </select>
+                </li>
+                <li><label>还款日：</label>
+                    <select class="form03_select_button" ng-model="individual.repayment_day" ng-click="select(day)">
+                        <option value="1">1日</option>
+                        <option value="2">2日</option>
+                        <option value="3">3日</option>
+                        <option value="4">4日</option>
+                        <option value="5">5日</option>
+                        <option value="6">6日</option>
+                        <option value="7">7日</option>
+                        <option value="8">8日</option>
+                        <option value="9">9日</option>
+                        <option value="10">10日</option>
+                        <option value="11">11日</option>
+                        <option value="12">12日</option>
+                        <option value="13">13日</option>
+                        <option value="14">14日</option>
+                        <option value="15">15日</option>
+                        <option value="16">16日</option>
+                        <option value="17">17日</option>
+                        <option value="18">18日</option>
+                        <option value="19">19日</option>
+                        <option value="20">20日</option>
+                        <option value="21">21日</option>
+                        <option value="22">22日</option>
+                        <option value="23">23日</option>
+                        <option value="24">24日</option>
+                        <option value="25">25日</option>
+                        <option value="26">26日</option>
+                        <option value="27">27日</option>
+                        <option value="28">28日</option>
+                        <option value="29">29日</option>
+                        <option value="30">30日</option>
+                    </select>
+                </li>
+            </ul>
+        </div>
+        <div class="account02-button">
+            <div class="link-button button white price-button" ng-click="credit_confirm()">完成</div>
+            <div class="link-button button white price-button" ng-click="credit_cancel()">取消编辑</div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,80 @@
+<link href="css/signin.css" rel="stylesheet" type="text/css">
+<div class="login_m">
+    <div class="login_logo"><img src="img/signin_logo.png"></div>
+    <div class="login_boder">
+        <!-- 登录界面-->
+        <div class="login_padding" ng-show="showLogin">
+            <h2>用户名</h2>
+            <label>
+                <input type="text" id="nickname" class="txt_input txt_input2" ng-model="login.nickname" placeholder="请输入用户名">
+            </label>
+            <h2>密码</h2>
+            <label>
+                <input type="password" name="textfield2" id="userpwd" class="txt_input" ng-model="login.password" placeholder="密码">
+            </label>
+            <div class="common_marked">{{login.message}}</div>
+            <p class="registry"><a ng-click="click_registry()">还未注册--></a></p>
+            <p class="forgot"><a ng-click="click_forgot()">忘记密码?</a></p>
+            <div class="rem_sub clearfix">
+                <div class="rem_sub_l">
+                    <!--<input type="checkbox" name="checkbox" id="save_me">-->
+                    <!--<label for="checkbox">记住</label>-->
+                </div>
+                <label class="login_submit" ng-click="loginIn()">
+                    <input type="submit" class="sub_button" name="button" value="登录">
+                </label>
+            </div>
+
+        </div>
+        <!-- 注册界面-->
+        <div class="login_padding" ng-show="showRegistry">
+            <h2>昵称</h2>
+            <label>
+                <input type="text" class="txt_input txt_input2" ng-model="register.nickname" placeholder="请输入登录用名">
+            </label>
+            <h2>姓名</h2>
+            <label>
+                <input type="text" class="txt_input txt_input2" ng-model="register.username" placeholder="请输入您的名字">
+            </label>
+            <h2>密码</h2>
+            <label>
+                <input type="password" class="txt_input" ng-model="register.password" placeholder="密码">
+            </label>
+            <h2>确认密码</h2>
+            <label>
+                <input type="password" class="txt_input" ng-model="register.repassword" placeholder="确认密码">
+            </label>
+            <h2>邮箱地址</h2>
+            <label>
+                <input type="email" class="txt_input" ng-model="register.email" placeholder="xxxx@xxx.com">
+            </label>
+            <div class="common_marked">{{register.message}}</div>
+            <p class="registry"><a ng-click="click_login()">已有账号<--</a></p>
+            <div class="rem_sub clearfix">
+                <label class="login_submit" ng-click = "registerTo()">
+                    <input type="submit" class="sub_button" name="button" value="注册">
+                </label>
+            </div>
+        </div>
+        <!-- 找回密码界面-->
+        <div class="login_padding" ng-show="showForgot">
+            <h2>用户名</h2>
+            <label>
+                <input type="text" class="txt_input txt_input2" ng-model="forgot.nickname" placeholder="请输入登录用名">
+            </label>
+            <h2>邮箱</h2>
+            <label>
+                <input type="email" class="txt_input" ng-model="forgot.email" placeholder="请输入使用邮箱">
+            </label>
+            <div class="common_marked">{{forgot.message}}</div>
+            <p class="registry"><a ng-click="click_login()">已有账户<--</a></p>
+            <p class="forgot"><a ng-click="click_registry()">注册账户--></a></p>
+            <div class="rem_sub clearfix">
+                <label class="login_submit" ng-click = "forgotBack()">
+                    <input type="submit" class="sub_button" name="button"  value="发送邮箱邮件">
+                </label>
+            </div>
+        </div>
+    </div><!--login_boder end-->
+</div><!--login_m end-->
+

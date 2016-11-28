@@ -1,0 +1,57 @@
+<!--资金流动表-->
+<div class="bloc"  ng-controller="form04Controller">
+    <div class="title">
+        <div class="float_left">资金流动表</div>
+    </div>
+    <!-- 选择块-->
+    <div class="content clearfix">
+        <!--<div class="tabs bills01_select">-->
+            <!--<ul class="clearfix">-->
+                <!--<li class="hover_cursor bills01_select_button" ng-click="bills_select_all()">全部</li>-->
+                <!--<li>-->
+                    <!--<button class="bills01_select_button">所有分类</button>-->
+                    <!--<button class="bills01_select_button">所有账户</button>-->
+                    <!--<button class="bills01_select_button">选择时间</button>-->
+                <!--</li>-->
+                <!--<li class="hover_cursor bills01_select_button">搜备注</li>-->
+                <!--<li class="hover_cursor bills01_select_button">导出数据</li>-->
+            <!--</ul>-->
+        <!--</div>-->
+        <div class="bloc left">
+            <div class="title">
+                资金流动表
+            </div>
+            <div class="content">
+                <div class="row">
+                    <div class="col-lg-12 col-sm-12" id="line-chart-put">
+                        <div class="panel panel-default">
+                            <div class="panel-body">
+                                <canvas id="area" class="chart chart-radar" data="data" labels="labels" click="onClick"></canvas>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="bloc right">
+            <div class="content">
+                <table class="table table-hover table-bordered">
+                    <thead>
+                    <tr>
+                        <th>账号</th>
+                        <th>流入资金</th>
+                        <th>流出资金</th>
+                        <th>余额</th>
+                    </tr>
+                    </thead>
+                    <tr ng-repeat="item in items">
+                        <td>{{item.account}}</td>
+                        <td>{{item.income}}</td>
+                        <td>{{item.pay}}</td>
+                        <td>{{item.blance}}</td>
+                    </tr>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>

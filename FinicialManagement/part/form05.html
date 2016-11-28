@@ -1,0 +1,26 @@
+<div class="bloc" ng-controller="form05Controller">
+    <div class="title">
+        <div class="float_left">
+            对账报表
+        </div>
+    </div>
+    <div class="content form05">
+        <div class="tit">{{account}}对账表</div>
+        <table>
+            <thead>
+            <tr>
+                <th>流入</th>
+                <th>流出</th>
+                <th>余额</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr>
+                <td>{{item.income}}</td>
+                <td>{{item.pay}}</td>
+                <td>{{item.blance}}</td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+</div>

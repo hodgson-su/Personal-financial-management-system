@@ -1,0 +1,113 @@
+<div class="bloc">
+    <div class="title text-align-right">
+        记录
+        <div class="tabs" id="tabs1">
+            <a ng-click="click_bills01_expend()" ng-class="{bills01_hover:bills01_expend_hover,bills01_no_hover:bills01_expend}" class="hover_cursor">支出</a>
+            <a ng-click="click_bills01_income()" ng-class="{bills01_hover:bills01_income_hover,bills01_no_hover:bills01_income}" class="hover_cursor">收入</a>
+            <a ng-click="click_bills01_change()" ng-class="{bills01_hover:bills01_change_hover,bills01_no_hover:bills01_change}" class="hover_cursor">更改</a>
+        </div>
+    </div>
+    <div class="content">
+        <div id="tab11">
+            <ul class="clearfix">
+                <li><label>收支：</label>{{individual.budget}}</li>
+                <li><label>分类：</label><select ng-model="individual.classify" ng-options="classify for classify in classifies"></select></li>
+                <li><label>账户：</label><select ng-model="individual.account" ng-options="account for account in accounts"></select></li>
+                <li><label>金额：</label><input type="text" ng-model="individual.price" class="bills_input_price"></li>
+                <li><label>备注：</label><input type="text" ng-model="individual.remark" class="bills_input_remark"></li>
+            </ul>
+            {{dd}}
+        </div>
+        <div id="tab12">
+            <p class="clearfix">
+                <a class="button bills01-button" ng-click="bills01_add()" ng-show="add_mes">新增记录</a>
+                <a class="button bills01-button" ng-click="bills01_change_mes()" ng-show="change_mes">修改记录</a>
+            </p>
+        </div>
+    </div>
+</div>
+
+<div class="bloc">
+    <div class="title">
+        <div class="float_left">账目清单{{message}}</div>
+        <!--<div class="float_right"><span datepicker-popup="yyyy-MM-dd" ng-model="bill.dueOn">{{bill.dueOn}}</span></div>-->
+    </div>
+    <!-- 选择块-->
+    <div class="content">
+        <div class="bloc">
+            <div class="title">
+                <ul class="clearfix font-12">
+                    <li>
+                        <button class="bills01_select_button" ng-click="select_all()">全部</button>
+                    </li>
+                    <li>
+                        <!--<button class="bills01_select_button">所有分类</button>-->
+                        <select class="bills01_select_button" ng-model="select" ng-options="select for select in classifies">
+                            <option value="">所有分类</option>
+                        </select>
+                        <!--<button class="bills01_select_button">所有账户</button>-->
+                        <select class="bills01_select_button" ng-model="account" ng-options="account for account in accounts">
+                            <option value="">所有账号</option>
+                        </select>
+                        <!--<button class="bills01_select_button" ng-click="open($event)" datepicker-popup="yyyy-MM-dd" ng-model="bill.dueOn" is-open="opened" ng-required="true" close-text="Close">选择时间</button>-->
+                    </li>
+                    <li class="float_right">
+                        <button class="bills01_select_button">直接搜索</button><input ng-model="remark">
+                    </li>
+                    <li class="float_right">
+                        <button class="bills01_select_button">导出数据</button>
+                    </li>
+                </ul>
+            </div>
+            <div class="content">
+                <table>
+                    <thead>
+                    <tr>
+                        <th>序号</th>
+                        <th>时间</th>
+                        <th>分类</th>
+                        <th>金额</th>
+                        <th>账户</th>
+                        <th>备注</th>
+                        <th>修改</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                        <tr ng-repeat="item in items | filter:select | filter:account | filter:remark">
+                            <td>{{$index +1}}</td>
+                            <!--<td>{{item.id}}</td>-->
+                            <td>{{item.year}}-{{item.month}}-{{item.day}}</td>
+                            <td>({{item.budget}}){{item.classify}}</td>
+                            <td>{{item.price}}</td>
+                            <td>{{item.account}}</td>
+                            <td>{{item.remark}}</td>
+                            <td class="actions">
+                                <a title="编辑" ng-click="click_change($event,item);" class="hover_cursor">
+                                    <img src="img/icons/actions/edit.png" alt="" class="{{item.id}}"/>
+                                </a>
+                                <a title="删除" ng-click="click_delete($event);" class="hover_cursor">
+                                    <img src="img/icons/actions/delete.png" alt="" class="{{item.id}}"/>
+                                </a>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+                <!--<div class="left input">-->
+                    <!--<select name="action" id="tableaction">-->
+                        <!--<option value="">Action</option>-->
+                        <!--<option value="delete">Delete</option>-->
+                    <!--</select>-->
+                <!--</div>-->
+                <!--<div class="pagination">-->
+                    <!--<a href="#" class="prev">«</a>-->
+                    <!--<a href="#">1</a>-->
+                    <!--<a href="#" class="current">2</a>-->
+                    <!--...-->
+                    <!--<a href="#">21</a>-->
+                    <!--<a href="#">22</a>-->
+                    <!--<a href="#" class="next">»</a>-->
+                <!--</div>-->
+            </div>
+        </div>
+    </div>
+</div>

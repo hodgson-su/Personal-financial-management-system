@@ -1,0 +1,55 @@
+<div class="bloc" ng-controller="setting03Controller">
+    <div class="title">
+       安全设置
+    </div>
+    <div class="content clearfix">
+        <div class="safe">
+            <div class="safe-tit"><span class="{{mmbh_warn}}">{{safe_remind}}</span>密码保护 </div>
+            <div class="safe-button button white" ng-click="mm_start_change()">修改密码</div>
+            <div class="safe-explain">
+                <p>密码设置说明:</p>
+                <p>1密码长度6－16位，建议设置8位以上的复杂密码，最好是英文字母、数字、特殊符号组合！</p>
+                <p>2您也可以定期修改密码，以增强安全性。</p>
+            </div>
+            <div ng-show="mm_change" class="mm-change">
+                <div><label>请输入原始密码：</label><input ng-model="individual.oldpassword" type="password"></div>
+                <div><label>请输入新密码：</label><input ng-model="individual.newpassword" type="password"></div>
+                <div><label>请确认新密码：</label><input ng-model="individual.repassword" type="password"></div>
+                <div class="message">{{message}}</div>
+                <div class="change-button button white" ng-click="mm_confirm()">确认修改密码</div>
+                <div class="change-button button white" ng-click="mm_cancel()">放弃修改密码</div>
+            </div>
+        </div>
+        <div class="safe">
+            <div class="safe-tit"><span class="{{mmbh_warn}}">{{safe_remind}}</span>邮箱保护</div>
+            <div class="safe-button button white" ng-click="email_start_change()">修改邮箱</div>
+            <div class="safe-explain">
+                <p>为什么要设置邮箱密码保护？</p>
+                <p>1如果您忘记密码，可以通过输入邮箱地址找回。</p>
+                <p>2您可以通过邮箱获得您每月的个人财务报告，还有重要的记账业务提醒。</p>
+            </div>
+            <div ng-show="email_change" class="mm-change">
+                <div><label>请确认新的邮箱：</label><input ng-model="individual.email" type="email"></div>
+                <div class="message">{{message}}</div>
+                <div class="change-button button white" ng-click="email_confirm()">确认修改邮箱</div>
+                <div class="change-button button white" ng-click="email_cancel()">放弃修改邮箱</div>
+            </div>
+        </div>
+        <div class="safe">
+            <div class="safe-tit"><span class="{{sjbh_warn}}">{{safe_phone_remind}}</span>手机保护 </div>
+            <div class="safe-button button white" ng-click="phone_start_change()">{{phone_remark}}</div>
+            <div class="safe-explain">
+                <p>注：支持移动和联通手机号</p>
+                <p>手机密码保护说明：</p>
+                <p>1如果您忘记密码，可以通过输入手机号找回。</p>
+                <p>2可以用过手机短信及时获取我们最新的活动公告。</p>
+            </div>
+            <div ng-show="phone_change" class="mm-change">
+                <div><label>输入手机号码：</label><input ng-model="individual.phone" type="text"></div>
+                <div class="message">{{message}}</div>
+                <div class="change-button button white" ng-click="phone_confirm()">确认</div>
+                <div class="change-button button white" ng-click="phone_cancel()">放弃</div>
+            </div>
+        </div>
+    </div>
+</div>

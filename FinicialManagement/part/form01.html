@@ -1,0 +1,40 @@
+<div class="bloc">
+    <div class="title">
+        <div class="float_left">日常收支表</div>
+    </div>
+    <!-- 选择块-->
+    <div class="content clearfix">
+        <div class="bloc left">
+            <div class="title">
+                支出
+            </div>
+            <div class="content">
+                <div class="row">
+                    <div class="col-lg-12 col-sm-12" id="line-chart-put" ng-controller="BarCtrl_Out">
+                        <div class="panel panel-default">
+                            <div class="panel-body">
+                                <canvas id="bar_out" class="chart chart-bar" data="data" labels="labels"></canvas>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="bloc right">
+            <div class="title">
+                收入
+            </div>
+            <div class="content">
+                <div class="row">
+                    <div class="col-lg-12 col-sm-12" id="line-chart" ng-controller="BarCtrl_In">
+                        <div class="panel panel-default">
+                            <div class="panel-body">
+                                <canvas id="bar_in" class="chart chart-bar" data="data" labels="labels"></canvas>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

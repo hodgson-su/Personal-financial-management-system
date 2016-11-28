@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="Encoding" useUTFGuessing="true" native2AsciiForPropertiesFiles="false">
+    <file url="file://$PROJECT_DIR$/js/controllers.js" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/js/controllers/signin.js" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/part/account02.html" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/part/account03.html" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/part/account04.html" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/part/account05.html" charset="UTF-8" />
+    <file url="PROJECT" charset="UTF-8" />
+  </component>
+</project>

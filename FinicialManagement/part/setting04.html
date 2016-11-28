@@ -1,0 +1,22 @@
+<div class="bloc" ng-controller="setting04Controller">
+    <div class="title">
+        财报设置
+    </div>
+    <div class="content clearfix">
+        <div class="safe finicial">
+            <div class="safe-tit">个人财务报表 </div>
+            <p>报告设置：<input type="radio" value="true" name="save"  ng-model="individual.save"> 接收
+                            <input type="radio" value="false" name="save" ng-model="individual.save">不接收
+            </p>
+            <div ng-show="show_circle">
+                <p>
+                    周期：
+                    <input type="radio" value="cycle1" name="cycle" ng-model="individual.circle">每周
+                    <input type="radio" value="cycle2" name="cycle" ng-model="individual.circle">每月
+                </p>
+                <p>接收邮箱：默认邮箱<a href="#/individual/setting01"> （修改请至个人中心）</a></p></div>
+            <div class="safe-button button white" ng-click="takeover_keep()">保存设置</div>
+            <div class="safe-button button white" ng-click="takeover_reset()">重置</div>
+        </div>
+    </div>
+</div>

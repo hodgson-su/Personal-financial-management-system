@@ -1,0 +1,70 @@
+<div class="bloc">
+    <div class="title">
+        <div class="float_left">日程提醒备忘录{{message}}</div>
+    </div>
+    <!-- 选择块-->
+    <div class="content">
+        <table>
+            <thead>
+            <tr>
+                <th style="width:50px;">序号</th>
+                <th style="width:200px;">时间</th>
+                <th>事项</th>
+                <th style="width: 100px">编辑</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr ng-repeat="item in items">
+                <td>{{$index +1}}</td>
+                <td>{{item.date}}</td>
+                <td>{{item.mes}}</td>
+                <td class="actions">
+                    <!--<a title="Edit this content" ng-click="click_change()" class="hover_cursor">-->
+                        <!--<img src="img/icons/actions/edit.png" alt="" class="{{item.id}}"/>-->
+                    <!--</a>-->
+                    <a title="删除" ng-click="click_delete($event);" class="hover_cursor">
+                        <img src="img/icons/actions/delete.png" alt="" class="{{item.id}}">
+                    </a>
+                </td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
+
+<div class="bloc">
+    <div class="content">
+        <div id="tab11">
+            <div class="bills02_calendar clearfix">
+                <label>日期</label>
+                <div class="bills02_date_input">
+                    <input type="text" class="form-control form-style" datepicker-popup="yyyy-MM-dd" ng-model="bill.dueOn" is-open="opened" ng-required="true" close-text="Close" />
+                    <span class="input-group-btn">
+                        <button class="btn btn-default" ng-click="open($event)"><i class="glyphicon glyphicon-calendar"></i></button>
+                    </span>
+                </div>
+            </div>
+            <div  class="bills_input_remind"><label>事项</label>
+                <input type="text" ng-model="individual.remind">
+            </div>
+            {{dd}}
+        </div>
+        <div id="tab12">
+            <p class="clearfix">
+                <a class="button" ng-click="bills02_add()">添加提醒事项</a>
+            </p>
+        </div>
+    </div>
+</div>
+
+
+<div class="bloc mes-input" ng-show="get_mes">
+    <div class="title">
+        <div class="float_left">今日消息提醒</div>
+    </div>
+    <!-- 选择块-->
+    <div class="content">
+        <li ng-repeat="message in get_mes | filter:newDate">{{message.mes}}</li>
+        <div class="change-button button white" ng-click="mes_close()">确认</div>
+    </div>
+</div>

@@ -1,0 +1,69 @@
+<div class="bloc" ng-controller="setting06Controller">
+    <div class="title">
+        2016年预算设置
+        <select class="form03_select_button ml10" ng-model="month" ng-click="select(month)">
+            <option value="1">1月份</option>
+            <option value="2">2月份</option>
+            <option value="3">3月份</option>
+            <option value="4">4月份</option>
+            <option value="5">5月份</option>
+            <option value="6">6月份</option>
+        </select>
+        <div class="float_right">
+            <a href="#/individual/form03">查看报表</a>
+        </div>
+    </div>
+    <div class="bloc left">
+        <div class="content">
+            <table>
+                <thead>
+                <tr>
+                    <th>支出类型</th>
+                    <th>支出预算</th>
+                    <th>操作</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr ng-repeat="item in items | filter:pay_select">
+                    <td>{{item.classify}}</td>
+                    <td>{{item.price}}</td>
+                    <td class="actions"  ng-click="price_change($event,item);">
+                        <a title="编辑" class="hover_cursor">
+                            <img src="img/icons/actions/edit.png" alt="" class="{{item.id}}"/>
+                        </a>
+                    </td>
+                </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+    <div class="bloc right">
+        <div class="content">
+            <table>
+                <thead>
+                <tr>
+                    <th>支出类型</th>
+                    <th>支出预算</th>
+                    <th>操作</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr ng-repeat="item in items | filter:account_select">
+                    <td>{{item.classify}}</td>
+                    <td>{{item.price}}</td>
+                    <td class="actions"  ng-click="price_change($event,item);">
+                        <a title="编辑" class="hover_cursor">
+                            <img src="img/icons/actions/edit.png" alt="" class="{{item.id}}"/>
+                        </a>
+                    </td>
+                </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+    <div class="setting06-price-input" ng-show="price_input">
+        <div> 输入预算金额：<input type="text" ng-model="individual.price"></div>
+        <div class="link-button button white price-button" ng-click="price_confirm()">完成</div>
+        <div class="link-button button white price-button" ng-click="price_cancel()">取消编辑</div>
+    </div>
+</div>

@@ -1,0 +1,49 @@
+<!--首页-->
+<div ng-controller="firstpageController">
+    <div class="bloc">
+        <div class="title">收支表</div>
+        <div class="content">
+            <table class="table table-hover table-bordered">
+            <tr><td></td><td>本周</td><td>本月</td><td>本年</td></tr>
+                <tr><td>收入</td><td>￥{{income.week}}</td><td>￥{{income.month}}</td><td>￥{{income.year}}</td></tr>
+                <tr><td>支出</td><td>￥{{pay.week}}</td><td>￥{{pay.month}}</td><td>￥{{pay.year}}</td></tr>
+            </table>
+        </div>
+    </div>
+    <div class="bloc">
+        <div class="title">财务简报</div>
+        <div class="content">
+            本月可支出<span>￥{{income.month}}元</span>，已消费<span>￥{{pay.month}}元</span>，还剩可以消费<span>￥{{overflus}}元</span>。
+            <a> <span class="btn" ng-click="learn_more()">了解更多</span></a>
+        </div>
+    </div>
+    <div class="bloc left">
+        <div class="title"  >
+           本月支出去向图
+        </div>
+        <div class="content">
+            <div class="col-lg-12 col-sm-12" id="pie-chart" ng-controller="firstpage_PieCtrl">
+                <div class="panel panel-default">
+                    <div class="panel-body">
+                        <canvas id="pie" class="chart chart-pie chart-xs" data="data" labels="labels" series="series"></canvas>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="bloc right">
+    <div class="title">
+        本周支出趋势图
+    </div>
+    <div class="content">
+        <div class="col-lg-12 col-sm-12" id="line-chart" ng-controller="firstpage_LineCtrl">
+            <div class="panel panel-default">
+                <div class="panel-body">
+                    <canvas id="line" class="chart chart-line chart-xl" data="data" labels="labels"></canvas>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!--<div class="cb"></div>-->

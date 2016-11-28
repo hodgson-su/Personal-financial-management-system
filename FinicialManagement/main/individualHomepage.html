@@ -1,0 +1,120 @@
+<!--个人主页-->
+<div ng-controller="individualController">
+    <div class="settings" ng-class="{settings_width_150:settings_width_150,settings_width_0:settings_width_0}" id="settings" >
+        <div class="wrapper"  >
+            <div class="grid3">
+                <div class="titre">Backgrounds</div>
+                <a href="url(css/img/bg.html" class="backgroundChanger active" title="White" class="bg.png" ng-click="change_background()"></a>
+                <a href="url(css/img/dark-bg.html" class="backgroundChanger dark" title="Dark" class="dark-bg.png" ng-click="change_background()"></a>
+                <a href="url(css/img/wood.html" class="backgroundChanger dark" title="Wood" class="wood.jpg" ng-click="change_background()"></a>
+                <a href="url(css/img/altbg/smoothwall.html" class="backgroundChanger" title="Smoothwall" class="smothwall"></a>
+                <a href="url(css/img/altbg/black_denim.html" class="backgroundChanger dark" title="black_denim"></a>
+                <a href="url(css/img/altbg/carbon.html" class="backgroundChanger dark" title="Carbon"></a>
+                <a href="url(css/img/altbg/double_lined.html" class="backgroundChanger" title="Double lined"></a>
+                <div class="clear"></div>
+            </div>
+            <div class="grid3">
+                <div class="titre">Bloc style</div>
+                <a href="black.html" class="blocChanger" title="Black" style="background:url(css/img/bloctitle.png);"></a>
+                <a href="white.html" class="blocChanger active" title="White" style="background:url(css/img/white-title.png);"></a>
+                <a href="wood.html" class="blocChanger" title="Wood" style="background:url(css/img/wood-title.jpg);"></a>
+                <div class="clear"></div>
+            </div>
+            <div class="grid3">
+                <div class="titre">Sidebar style</div>
+                <a href="grey.html" class="sidebarChanger active" title="Grey" style="background:#494949"></a>
+                <a href="black.html" class="sidebarChanger" title="Black" style="background:#262626"></a>
+                <a href="white.html" class="sidebarChanger" title="White" style="background:#EEEEEE"></a>
+                <div class="clear"></div>
+            </div>
+            <div class="clear"></div>
+        </div>
+        <a class="settingbutton hover_cursor" ng-click="click_settings()"></a>
+    </div>
+
+    <!-- HEAD -->
+    <div id="head">
+        <div class="left">
+            <a href="#" class="button profile"><img src="img/icons/top/huser.png" alt="" /></a>
+            Hi,<a href="#/individual/setting01">{{individual.username}}</a>
+            <!--将链接至个人中心-->
+        </div>
+        <div class="right">
+            <a class="hover_cursor" ng-click="click_quit()">退出</a>
+            <code>|</code>
+            <a href="#">服务大厅</a>
+            <code>|</code>
+            <a href="#/individual/bills02"><span class="remind-mes"> {{remind}}</span>消息</a>
+        </div>
+    </div>
+
+    <!--SIDEBAR -->
+    <div id="sidebar">
+        <ul>
+            <li class="nosubmenu" ng-class="{current:current_firstpage}" ng-click="click_firstpage()">
+                <a ui-sref=".firstpage"><img src="img/icons/menu/home.png" alt="" />首页<i></i></a>
+            </li>
+            <li ng-class="{current:current_bills}" ng-click="click_bills()"><a ui-sref=".bills" ><img src="img/icons/menu/pen.png" alt="" /> 记账</a>
+                <ul class="slide" ng-hide="hide_bills">
+                    <li ng-class="{current:current_bills01}" class="{{current_list}}" ng-click="click_bills01()"><a ui-sref=".bills01">账目清单</a></li>
+                    <!-- bills-list01-->
+                    <li ng-class="{current:current_bills02}" ng-click="click_bills02()"><a ui-sref=".bills02">日常提醒</a></li>
+                    <!-- bills-list02 -->
+                </ul>
+            </li>
+            <li ng-class="{current:current_form}" ng-click="click_form()"><a class="hover_cursor"><img src="img/icons/menu/flag.png" alt="" /> 报表</a>
+                <ul class="slide" ng-hide="hide_form">
+                    <li ng-class="{current:current_form01}" class="{{current_list}}" ng-click="click_form01()"><a href="#" ui-sref=".form01">日常收支表</a></li>
+                    <li ng-class="{current:current_form02}" ng-click="click_form02()"><a href="#" ui-sref=".form02">收支趋势表</a></li>
+                    <li ng-class="{current:current_form03}" ng-click="click_form03()"><a href="#" ui-sref=".form03">收支预算表</a></li>
+                    <li ng-class="{current:current_form04}" ng-click="click_form04()"><a href="#" ui-sref=".form04">资金流动表</a></li>
+                    <li ng-class="{current:current_form05}" ng-click="click_form05()"><a href="#" ui-sref=".form05">对账报表</a></li>
+                </ul>
+            </li>
+            <li ng-class="{current:current_account}" ng-click="click_account()"><a class="hover_cursor"><img src="img/icons/menu/brush.png" alt="" /> 账户</a>
+                <ul ng-hide="hide_account">
+                    <li ng-class="{current:current_account01}" class="{{current_list}}" ng-click="click_account01()"><a href="#" ui-sref=".account01">现金账户</a></li>
+                    <li ng-class="{current:current_account02}" ng-click="click_account02()"><a href="#" ui-sref=".account02">信用卡账户</a></li>
+                    <li ng-class="{current:current_account03}" ng-click="click_account03()"><a href="#" ui-sref=".account03">负债账户</a></li>
+                    <li ng-class="{current:current_account04}" ng-click="click_account04()"><a href="#" ui-sref=".account04">投资账户</a></li>
+                    <li ng-class="{current:current_account05}" ng-click="click_account05()"><a href="#" ui-sref=".account05">保险账户</a></li>
+                </ul>
+            </li>
+            <li ng-class="{current:current_setting}" ng-click="click_setting()"><a class="hover_cursor"><img src="img/icons/menu/key.png" alt="" />设置</a>
+                <ul ng-hide="hide_setting">
+                    <li><a>系统设置</a>
+                        <ul>
+                            <li ng-class="{current:current_setting01}" class="{{current_list}}" ng-click="click_setting01()"><a href="#" ui-sref=".setting01">个人中心</a></li>
+                            <li ng-class="{current:current_setting02}" ng-click="click_setting02()"><a href="#" ui-sref=".setting02">账户绑定</a></li>
+                            <li ng-class="{current:current_setting03}" ng-click="click_setting03()"><a href="#" ui-sref=".setting03">安全设置</a></li>
+                        </ul>
+                    </li>
+                </ul>
+                <ul ng-hide="hide_setting">
+                    <li><a>账单设置</a>
+                        <ul>
+                            <li ng-class="{current:current_setting04}" ng-click="click_setting04()"><a href="#" ui-sref=".setting04">财报设置</a></li>
+                            <li ng-class="{current:current_setting05}" ng-click="click_setting05()"><a href="#" ui-sref=".setting05">分类设置</a></li>
+                            <li ng-class="{current:current_setting06}" ng-click="click_setting06()"><a href="#" ui-sref=".setting06">预算设置</a></li>
+                        </ul>
+                    </li>
+                </ul>
+            </li>
+        </ul>
+
+
+    </div>
+
+
+    <!-- CONTENT-->
+    <div id="content" class="white">
+        <div class="content_head">
+            <img src="img/logo_36x64.png" alt="" />
+            <p>个人财务管理系统</p>
+            <p>Finicial Management</p>
+        </div>
+        <!-- 固定列表对应具体内容 -->
+        <div ui-view="mainbody"></div>
+
+    </div>
+</div>

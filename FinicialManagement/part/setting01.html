@@ -1,0 +1,28 @@
+<div class="bloc" ng-controller="setting01Controller">
+    <div class="title">
+        个人中心
+    </div>
+    <div class="content clearfix">
+        <div class="setting01-img">
+            <img src={{imageSrc}}>
+            <div class="setting01-input-image">更改照片</div>
+            <input type="file" file-model="myFile" class="setting01-input-image"/>
+        </div>
+
+        <div class="setting01-right">
+            <div>名字：{{individual.username}}</div>
+            <div>昵称：{{individual.nickname}}</div>
+            <div class="setting02-email">邮箱：{{individual.email}}
+                <a title="编辑" ng-click="setting01_change();" class="hover_cursor">
+                    <img src="img/icons/actions/edit.png" alt="" class="{{item.id}}"/>
+                </a>
+            </div>
+            <div ng-show="change_eamil">
+                <input type="text" ng-model="individual.email" class="change-setting-input">
+                <a><span class="btn email-change" ng-click="email_change()">修改</span> </a>
+                <a><span class="btn email-change" ng-click="cancel_change()">取消修改</span> </a>
+            </div>
+        </div>
+        {{message}}
+    </div>
+</div>

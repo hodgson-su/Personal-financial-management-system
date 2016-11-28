@@ -1,0 +1,61 @@
+<div class="bloc" ng-controller="setting05Controller">
+    <div class="title">
+        分类设置
+    </div>
+    <div class="bloc left">
+        <div class="content">
+            <table>
+                <thead>
+                <tr>
+                    <th>支出分类</th>
+                    <th>操作</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr ng-repeat="pay_classify in pay_classifies">
+                    <td>{{pay_classify.classify}}</td>
+                    <td class="actions">
+                        <a title="删除" ng-click="pay_delete($event);" class="hover_cursor">
+                            <img src="img/icons/actions/delete.png" alt="" class="{{pay_classify.id}}"/>
+                        </a>
+                    </td>
+                </tr>
+                </tbody>
+            </table>
+            <div class="link-button button white"  ng-click="add_pay()">添加支出分类</div>
+            <div class="add-classify" ng-show="pay_classify">
+                <input type="text" ng-model="individual.pay_classify" placeholder="在此输入要添加的分类">
+                <div class="link-button button white" ng-click="pay_confirm()">添加</div>
+                <div class="link-button button white" ng-click="pay_cancel()">不添加</div>
+            </div>
+        </div>
+    </div>
+    <div class="bloc right">
+        <div class="content">
+            <table>
+                <thead>
+                <tr>
+                    <th>收入分类</th>
+                    <th>操作</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr ng-repeat="income_classify in income_classifies">
+                    <td>{{income_classify.classify}}</td>
+                    <td class="actions">
+                        <a title="删除" ng-click="income_delete($event);" class="hover_cursor">
+                            <img src="img/icons/actions/delete.png" alt="" class="{{income_classify.id}}"/>
+                        </a>
+                    </td>
+                </tr>
+                </tbody>
+            </table>
+            <div class="link-button button white" ng-click="add_income()">添加收入分类</div>
+            <div class="add-classify" ng-show="income_classify">
+                <label>添加分类：</label><input type="text" ng-model="individual.income_classify" placeholder="在此输入要添加的分类">
+                <div class="link-button button white" ng-click="income_confirm()">添加</div>
+                <div class="link-button button white" ng-click="income_cancel()">不添加</div>
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,33 @@
+<!--现金-->
+<div class="bloc" ng-controller="account03Controller">
+    <div class="title">
+        <div class="float_left">负债</div>
+        <div class="float_right"><button class="btn">对账</button></div>
+    </div>
+    <div class="content">
+        <div class="tit">
+            <div>
+                <!--<p>编辑备注</p>-->
+                <p>类型：现金账户->现金口袋 币种：人民币</p>
+            </div>
+            <table>
+                <thead>
+                <tr>
+                    <th>时间</th>
+                    <th>分类</th>
+                    <th>金额</th>
+                    <th>备注</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr ng-repeat="item in items">
+                    <td>{{item.date}}</td>
+                    <td>{{item.classify}}</td>
+                    <td>{{item.price}}</td>
+                    <td>{{item.remark}}</td>
+                </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>

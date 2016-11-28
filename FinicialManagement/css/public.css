@@ -1,0 +1,17 @@
+/*����size*/
+.font-12{font-size:12px;}
+.font-18{font-size:18px;}
+.font-20{font-size:20px;}
+.font-22{font-size:22px;}
+.font-24{font-size:24px;}
+.font-32{font-size:32px;}
+/*����align*/
+.text-align-right{
+    text-align:right;
+}
+
+.ml10{margin-left:10px;}
+
+.hover_cursor{cursor:pointer;}
+.float_left{float:left;}
+.float_right{float:right!important;}
